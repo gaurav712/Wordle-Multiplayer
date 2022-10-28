@@ -1,0 +1,68 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/fonts/BoxyBold.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/fonts/BoxyBoldBig.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Start.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_bottom = 3
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 0 )
+border_width_bottom = 3
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="."]
+margin_top = 340.0
+margin_right = 720.0
+custom_fonts/font = ExtResource( 2 )
+text = "______"
+align = 1
+valign = 1
+
+[node name="CreateRoom" type="Button" parent="."]
+margin_left = 160.0
+margin_top = 500.0
+margin_right = 560.0
+margin_bottom = 580.0
+custom_fonts/font = ExtResource( 1 )
+text = "Create Room"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="JoinRoom" type="Button" parent="."]
+margin_left = 160.0
+margin_top = 880.0
+margin_right = 560.0
+margin_bottom = 960.0
+custom_fonts/font = ExtResource( 1 )
+disabled = true
+text = "Join Room"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 200.0
+margin_top = 720.0
+margin_right = 520.0
+margin_bottom = 798.0
+custom_fonts/font = ExtResource( 2 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 1 )
+align = 1
+max_length = 6
+context_menu_enabled = false
+
+[connection signal="pressed" from="CreateRoom" to="." method="_on_CreateRoom_pressed"]
+[connection signal="pressed" from="JoinRoom" to="." method="_on_JoinRoom_pressed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
